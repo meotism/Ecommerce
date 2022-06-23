@@ -1,0 +1,11 @@
+Flask
+gunicorn
+python-dotenv
+numpy 
+pandas
+seaborn 
+sklearn
+flask-cors
+pymongo[srv]
+Flask-PyMongo
+passlib
