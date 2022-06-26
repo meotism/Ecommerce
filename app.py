@@ -32,7 +32,7 @@ def login_required(f):
 
 @app.route('/')
 def login():
-    return render_template('index.html')
+    return render_template('index_2.html')
 @app.route('/login')
 def loginpage():
     return render_template('login.html')
@@ -44,10 +44,6 @@ def home():
       return render_template('index_2.html')
     else:
       return redirect(url_for('login'))
-@app.route('/home1')
-def home1():
-    #render index.html
-    return render_template('index_2.html')
 @app.route('/signup')
 def signup():
     return render_template('signup.html')

@@ -44,5 +44,16 @@ $("form[name=signup_form").submit(function(e) {
       }
     });
   
+    $("#signout").click(function(e) {
+      e.preventDefault();
+      $.ajax({
+        url: "/user/signout",
+        type: "GET",
+        dataType: "json",
+        success: function(resp) {
+          window.location.href = "/";
+        }
+      });
+    });
 
   });
