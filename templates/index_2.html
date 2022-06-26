@@ -24,12 +24,13 @@
 	<link rel="stylesheet" href="/assets/css/magnific-popup.css">
 	<!-- animate css -->
 	<link rel="stylesheet" href="/assets/css/animate.css">
-	<!-- mean menu css -->s
+	<!-- mean menu css -->
 	<link rel="stylesheet" href="/assets/css/meanmenu.min.css">
 	<!-- main style -->
 	<link rel="stylesheet" href="/assets/css/main.css">
 	<!-- responsive -->
 	<link rel="stylesheet" href="/assets/css/responsive.css">
+	
 
 </head>
 <body>
@@ -96,7 +97,15 @@
 									<div class="header-icons">
 										<a class="shopping-cart" href="cart.html"><i class="fas fa-shopping-cart"></i></a>
 										<a class="mobile-hide search-bar-icon" href="#"><i class="fas fa-search"></i></a>
+										<a class="account-icon" href="#"><i class="fa fa-user-circle"aria-hidden="true"></i></a>
 									</div>
+									<ul class="sub-menu">
+										<li><a>{{session['user'].name}}</a></li>
+										<li><p>{{session['user'].ammount}}đ<a class="plus-icon" href="#"><i class="fas fa-plus"></i></a></p></li>
+										<li><a href="#">Personality</a></li>
+										<li><a href="#">History</a></li>
+										<li><a href="#">Logout</a></li>
+									</ul>
 								</li>
 							</ul>
 						</nav>

@@ -25,6 +25,7 @@ class User:
       "email": request.form.get('email'),
       "password": request.form.get('password'),
       "phonenumber": request.form.get('phonenumber'),
+      "ammount":0
     }
 
     # Encrypt the password

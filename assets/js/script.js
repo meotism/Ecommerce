@@ -10,7 +10,11 @@ $("form[name=signup_form").submit(function(e) {
       data: data,
       dataType: "json",
       success: function(resp) {
-        window.location.href = "/login";
+        alert("Registed successfully !"); 
+        // wait 3s and redirect to login page
+        setTimeout(function() {
+          window.location.href = "/login";
+        }, 3000); 
       },
       error: function(resp) {
         $error.text(resp.responseJSON.error).removeClass("error--hidden");

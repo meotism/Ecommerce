@@ -129,33 +129,40 @@ ul.sub-menu li:last-child {
 
     color: $text-color;
   }
+  p.meanmenu-reveal {
+    span {
+      background-color: $text-color;
+    }
 
+    color: $text-color;
+  }
   .mean-nav ul li {
     a {
       padding: 0.5em 5%;
     }
-
+  
     li a {
       padding: 0.5em 10%;
     }
-
+    
     a.mean-expand {
       font-size: 16px;
       height: 10px;
       line-height: 10px;
       width: 15px;
     }
+  
   }
 
   a.meanmenu-reveal {
     padding: 8px 8px 6px;
   }
+
 }
 
 nav.mean-nav > ul > li:first-child > a {
   border-top: none;
 }
-
 .header-icons a {
   color: $white-color;
   display: inline-block;
@@ -181,6 +188,12 @@ nav.main-menu {
         font-size: 13px;
         font-weight: 600;
       }
+      p {
+        color: #555;
+        padding: 8px;
+        font-size: 13px;
+        font-weight: 600;
+      }
 
       display: block;
     }
@@ -194,10 +207,16 @@ nav.main-menu {
     &:hover > a {
       color: $primary-color;
     }
-
+    &:hover > p {
+      color: $primary-color;
+    }
     a {
       transition: 0.3s;
     }
+    p {
+      transition: 0.3s;
+    }
+ 
   }
 }
 
