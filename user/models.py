@@ -3,6 +3,7 @@ from config.db import MongoDB
 import json
 import uuid
 from passlib.hash import pbkdf2_sha256
+import datetime
 collection_name = 'user'
 
 mongoDB = MongoDB()
@@ -25,7 +26,8 @@ class User:
       "email": request.form.get('email'),
       "password": request.form.get('password'),
       "phonenumber": request.form.get('phonenumber'),
-      "ammount":0
+      "ammount":0,
+      "modified_date": datetime.datetime.now(),
     }
 
     # Encrypt the password
@@ -37,7 +39,6 @@ class User:
 
     if self.collection.insert_one(user):
       return self.start_session(user)
-
     return jsonify({ "error": "Signup failed" }), 400
   
   def signout(self):
@@ -54,3 +55,14 @@ class User:
       return self.start_session(user)
     
     return jsonify({ "error": "Login failed" }), 401
+
+  def update_user(user_id, self):
+    user = {
+      "name": request.form.get('name'),
+      "email": request.form.get('email'),
+      "phonenumber": request.form.get('phonenumber'),
+      "ammount":request.form.get('ammount'),
+      "modified_date": datetime.datetime.now(),
+    }
+    if self.collection.update_one({'_id': user_id}, {'$set': user}):
+      return jsonify(user), 200

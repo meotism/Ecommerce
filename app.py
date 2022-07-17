@@ -6,19 +6,20 @@ from datetime import datetime
 from flask_cors import CORS
 from config.db import MongoDB
 from user.routes import user_blueprint
-
+from product.routes import product_blueprint
 mongodB=MongoDB()
 # Routes
 from user import routes
+from product import routes
+
 app = Flask(__name__)
 app = Flask(__name__, static_folder = './assets')
 app.secret_key = 'super secret key'
 # CORS(app, resources={r"/api/*": {"origins": "*"}})
 # load_dotenv(dotenv_path='.env')
 
-
 app.register_blueprint(user_blueprint, url_prefix='/user')
-
+app.register_blueprint(product_blueprint, url_prefix='/product')
 # Decorators
 def login_required(f):
   @wraps(f)
@@ -77,4 +78,13 @@ def error():
     return render_template('404.html')
 @app.route('/shop')
 def shop():
+    # what page ?
+    page = request.args.get('page', 1, type=int)
+    # get products by page from db
+    
+    # embedding the products in the shop.html
+
     return render_template('shop.html')
+@app.route('/initproduct', methods=['GET','POST'])
+def initproduct():
+    return render_template('createproduct.html')

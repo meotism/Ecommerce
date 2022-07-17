@@ -3,8 +3,10 @@ from flask import Blueprint, request, redirect
 from api.data.MatrixDB import MatrixDB
 import pandas as pd
 
-matrixDB = MatrixDB()
+from product.models import Product
 
+
+matrixDB = MatrixDB()
 data_blueprint = Blueprint('data_blueprint', __name__)
 
 
